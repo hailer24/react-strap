@@ -23,11 +23,28 @@ class Main extends React.Component {
       selectedDish: null,
     };
   }
+
   onDishSelect(dish) {
     this.setState({ selectedDish: dish });
   }
 
   render() {
+    const DishWithId = (props) => {
+      let match = props.match;
+      console.log(match);
+      return (
+        <DishDetail
+          dish={
+            this.state.dishes.filter(
+              (dish) => dish.id === parseInt(match.params.dishId, 10)
+            )[0]
+          }
+          comments={this.state.comments.filter(
+            (comment) => comment.dishId === parseInt(match.params.dishId, 10)
+          )}
+        />
+      );
+    };
     const HomePage = () => {
       return (
         <Home
@@ -53,6 +70,7 @@ class Main extends React.Component {
             )}
           />
           <Route exact path="/contactus" component={Contact} />
+          <Route path="/menu/:dishId" component={DishWithId} />
           <Redirect to="/home" />
         </Switch>
         <Footer />
