@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
-import { Control, Errors, LocalForm } from "react-redux-form";
+import { Control, Errors } from "react-redux-form";
 import { Link } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
   Col,
+  Form,
   Label,
   Row,
 } from "reactstrap";
@@ -27,6 +28,7 @@ class Contact extends React.Component {
   handleSubmit(e) {
     console.log("Current State is: " + JSON.stringify(e));
     alert("Current State is: " + JSON.stringify(e));
+    this.props.resetFeedbackForm();
   }
 
   render() {
@@ -91,7 +93,10 @@ class Contact extends React.Component {
             <h3>Send us your feedback</h3>
           </div>
           <div className="col-12 md-9">
-            <LocalForm onSubmit={(e) => this.handleSubmit(e)}>
+            <Form
+              model="feedback"
+              onSubmit={(values) => this.handleSubmit(values)}
+            >
               <Row className="form-group">
                 <Label htmlFor="firstname" md={2}>
                   First name
@@ -253,7 +258,7 @@ class Contact extends React.Component {
                   </Button>
                 </Col>
               </Row>
-            </LocalForm>
+            </Form>
           </div>
         </div>
       </div>
