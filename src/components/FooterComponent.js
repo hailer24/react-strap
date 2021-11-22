@@ -13,13 +13,13 @@ function Footer(props) {
                 <Link to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/aboutus">About Us</Link>
+                <Link to="/aboutus">About</Link>
               </li>
               <li>
                 <Link to="/menu">Menu</Link>
               </li>
               <li>
-                <Link to="/contactus">Contact Us</Link>
+                <Link to="/contactus">Contact</Link>
               </li>
             </ul>
           </div>
@@ -37,7 +37,7 @@ function Footer(props) {
               <i className="fa fa-fax fa-lg"></i>: +852 8765 4321
               <br />
               <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a href="mailto:confusion@food.net">confusion@food.net</a>
+              <Link to="mailto:confusion@food.net">confusion@food.net</Link>
             </address>
           </div>
           <div className="col-12 col-sm-4 align-self-center">
@@ -72,7 +72,7 @@ function Footer(props) {
               >
                 <i className="fa fa-youtube"></i>
               </a>
-              <a className="btn btn-social-icon" href="mailto:">
+              <a className="btn btn-social-icon" to="mailto:" href="/">
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>
